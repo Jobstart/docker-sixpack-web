@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Deploying jobstartinc/sixpack-web:$CIRCLE_SHA1"
+docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+docker tag -f jobstartinc/sixpack-web:$CIRCLE_SHA1 jobstartinc/sixpack-web:latest
+docker push jobstartinc/sixpack-web:$CIRCLE_SHA1
+docker push jobstartinc/sixpack-web:latest
